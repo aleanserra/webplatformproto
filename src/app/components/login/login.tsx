@@ -1,14 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Col,
-  Form,
-  FormControl,
-  FormLabel,
-  Row,
-} from "react-bootstrap";
+import { Button, Col, Form, Row } from "react-bootstrap";
 import "./styles.scss";
-import { fetchLogin, LoginBody } from "../../../src/libraries/login";
+import { fetchLogin } from "../../../../src/libraries/login";
 import { useHistory } from "react-router";
 
 const Login = () => {
@@ -19,12 +12,12 @@ const Login = () => {
   const [logedIn, setLogedIn] = useState<boolean>();
 
   const login = async () => {
-    fetchLogin({ entid, uid, password })
+    await fetchLogin({ entid, uid, password })
       .then((data: any) => {
-        setLogedIn(!!data?.token);
-        localStorage.setItem("token", data?.token);
+        setLogedIn(!!data?.data?.token);
+        localStorage.setItem("token", data?.data?.token);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log("error"));
   };
 
   useEffect(() => {

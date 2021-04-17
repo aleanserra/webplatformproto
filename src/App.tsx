@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Equipments from "./components/equipments/equipments";
-import Login from "./components/login/login";
+import Equipments from "./app/components/equipments/equipments";
+import Login from "./app/components/login/login";
 import "./app.scss";
 
 const App = () => {

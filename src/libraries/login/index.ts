@@ -1,21 +1,22 @@
+import axios from "axios";
+
 export interface LoginBody {
   entid: string;
   uid: string;
   password: string;
 }
 
+const options = {
+  headers: {
+    accept: "application/json",
+    "content-type": "application/json",
+  },
+};
+
 export const fetchLogin = (body: LoginBody) => {
-  return fetch(
+  return axios.post(
     "https://service.zarph.com/zarph-zps-ea-war/restapi/authenticate/",
-    {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(body),
-    }
-  )
-    .then((response) => response.json())
-    .catch((error) => console.log(error));
+    JSON.stringify(body),
+    options
+  );
 };
