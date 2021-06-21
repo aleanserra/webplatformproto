@@ -22,5 +22,17 @@
   },
   "include": [
     "src"
-  ]
+  ],
+  "baseUrl": "./src",
+  "paths": {
+    "app/*": ["app/*"],
+    "libraries/*": ["libraries/*"],
+    "components/*": ["app/components/*"],
+    "client-redux/*": ["app/client-redux/*"],
+    "context/*": ["app/context/*"],
+    "utils/*": ["utils/*"],
+    "ui/*": ["ui/*"],
+    "img/*": ["img/*"],
+    "assets/*": ["assets/*"]
+  },
 }

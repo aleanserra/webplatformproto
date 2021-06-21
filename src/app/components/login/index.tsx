@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 import "./styles.scss";
-import { fetchLogin } from "../../../../src/libraries/login";
+import { fetchLogin } from "../../../libraries/login";
 import { useHistory } from "react-router";
 
 const Login = () => {
@@ -17,7 +17,7 @@ const Login = () => {
         setLogedIn(!!data?.data?.token);
         localStorage.setItem("token", data?.data?.token);
       })
-      .catch((error) => console.log("error"));
+      .catch((error) => console.log("error", error));
   };
 
   useEffect(() => {
